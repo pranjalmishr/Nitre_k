@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   console.log(req)
-  res.json({name:"boy"})
+  res.json({name:"good boy"})
 });
 router.get('/about', function(req, res, next) {
       console.log(req)
