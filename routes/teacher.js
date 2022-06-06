@@ -1,18 +1,45 @@
 var express = require('express');
 var router = express.Router();
 
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   console.log(req)
-//   res.json({name:"good boy"})
-// });
-router.get('/', function(req, res, next) {
-  res.render('teacher');
+/* GET home page. */
+
+router.post('/data', function(req, res, next) {
+  console.log(req.body)
+  console.log(req.query.lname)
+  // res.json({name:req.query.fname})
+  res.render('index', { title: req.body.fname });
 });
 
-router.get('/about', function(req, res, next) {
-      console.log(req)
-      res.json({name:"unknown person"})
-    });
+router.get('/data', function(req, res, next) {
+  console.log(req.query)
+  // res.json({name:req.query.fname})
+  res.render('index', { title: req.query.fname });
+});
 
-module.exports = router;
+router.get('/:da-:ta-:ch', function(req, res, next) {
+    console.log(req.params )
+    // res.json({name:req.params.da+","+req.params.ch +" and "+req.params.ta+" are bother and sister"})
+    res.render('teacher', { title: req.params.da,name1:req.params.ta,verb:req.params.ch});
+
+  });
+
+router.get('/:da-:ta', function(req, res, next) {
+    console.log(req.params.da)
+    // res.json({name:req.params.da+" and "+req.params.ta+" are bother and sister"})
+    res.render('teacher', { title: req.params.da,name1:req.params.ta});
+  });
+
+router.get('/:da', function(req, res, next) {
+    console.log(req.params.da)
+    // res.json({name:req.params.da})
+    res.render('teacher', { title: req.params.da});
+  });
+
+
+  router.get('/', function(req, res, next) {
+    console.log(req.params.da)
+    // res.json({name:req.params.da})
+    res.render('teacher', { title: req.params.da});
+  });
+
+module.exports = router
