@@ -5,10 +5,10 @@ services:
     image: mysql:5.7
     container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: app_db
-      MYSQL_USER: db_user
-      MYSQL_PASSWORD: db_user_pass
+      MYSQL_USER: nitre
+      MYSQL_PASSWORD: 0000
     ports:
       - "6033:3306"
     volumes:
@@ -24,6 +24,6 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8081:80
+      - 9000:80
 volumes:
   dbdata:
