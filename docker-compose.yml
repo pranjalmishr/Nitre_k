@@ -8,9 +8,9 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: app_db
       MYSQL_USER: nitre
-      MYSQL_PASSWORD: 0000
+      MYSQL_PASSWORD: 1234
     ports:
-      - "6033:3306"
+      - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
   phpmyadmin:
@@ -24,6 +24,6 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 9000:80
+      - 8000:80
 volumes:
   dbdata:
